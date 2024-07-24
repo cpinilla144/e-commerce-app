@@ -1,12 +1,26 @@
 "use client";
 
-import ProductImage from "@/components/productimage";
+import ProductImage from "../components/ProductImage";
+// import Product from "../components/Product";
 import { Dialog } from "@headlessui/react";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
 
 function Modal() {
   let [isOpen, setIsOpen] = useState(true);
@@ -50,7 +64,7 @@ function Modal() {
               <div className="flex gap-x-8 h-96">
               {product?.image && (
                 <div className="relative w-72 h-full hidden md:inline">
-                  <ProductImage product={product} fill />
+                 
                 </div>
              )}
             
